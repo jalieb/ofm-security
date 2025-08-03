@@ -8,14 +8,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class User implements UserInterface
 {
-    /**
-     * @param non-empty-string $userIdentifier
-     * @param non-empty-string $clubId
-     * @param array<string>    $roles
-     */
     public function __construct(
         private string $userIdentifier,
-        private string $clubId,
+        private ?string $clubId,
         private array $roles,
     ) {
     }
@@ -25,7 +20,7 @@ class User implements UserInterface
         return $this->userIdentifier;
     }
 
-    public function getClubId(): string
+    public function getClubId(): ?string
     {
         return $this->clubId;
     }
